@@ -25,9 +25,13 @@ I'm a passionate programmer and scripter with a strong foundation in multiple la
 Languages I Know:
 
 Python 🐍
+
 C++ 🧑‍💻
+
 Lua 🌙
+
 JavaScript 💻 (and a dash of)
+
 My journey in the realm of programming and scripting began with an insatiable curiosity and a desire to create solutions to real-world problems. Over the years, I've honed my skills in Python, C++, and Lua, allowing me to tackle a diverse range of projects, from automation scripts that streamline daily tasks to complex software applications.
 
 My work isn't just about lines of code; it's about crafting elegant and efficient solutions that make a difference. I thrive on challenges and am committed to delivering high-quality results that exceed expectations.
