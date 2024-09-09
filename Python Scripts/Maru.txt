@@ -1,0 +1,134 @@
+import os
+import time
+import sys
+
+def print_hacker_style(text):
+    for char in text:
+        print(char, end='', flush=True)
+        time.sleep(0.05)
+    print()  # New line after the text is printed
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def set_terminal_style():
+    # This will set the terminal to black background and green text
+    os.system('color 0A')  # '0A' means black background (0) and green text (A) on Windows
+
+def loading_bar(length=30):
+    for i in range(length):
+        time.sleep(0.1)  # Delay to simulate loading
+        sys.stdout.write('█')
+        sys.stdout.flush()
+    print()  # New line after loading is done
+
+def show_title():
+    clear_screen()
+    title_art = r"""
+    ###########################################
+    #                                         #
+    #       __  __    _    ____  _    _       #
+    #      |  \/  |  / \  |  _ \| |  | |      #
+    #      | |\/| | / _ \ | | | | |  | |      #
+    #      | |  | |/ ___ \| |_| | |__| |      #
+    #      |_|  |_/_/   \_\____/ \____/       #
+    #                                         #
+    ###########################################
+    """
+    print_hacker_style(title_art)
+
+def print_intro_message():
+    print_hacker_style("Hello, I am Maru's AI, programmed to help you understand more about Maru.")
+    print_hacker_style("I am here to guide you through Maru's traits, personality, and knowledge in cybersecurity.")
+    print_hacker_style("Whether you're interested in learning more about Maru's journey or diving into the depths of cybersecurity, I'm here to assist.")
+    print_hacker_style("Let's begin your exploration...")
+
+def hacker_menu():
+    show_title()
+    print_intro_message()
+    print_hacker_style("\n1. Learn about Maru")
+    print_hacker_style("2. Starting Off: Maru's Journey into Cybersecurity")
+    print_hacker_style("3. Explore Maru's Cybersecurity Knowledge")
+    print_hacker_style("4. Secret")
+    print_hacker_style("5. Exit")
+    choice = input("\nEnter the number of your choice: ")
+
+    if choice == '1':
+        learn_about_maru()
+    elif choice == '2':
+        starting_off()
+    elif choice == '3':
+        explore_cybersecurity()
+    elif choice == '4':
+        secret_option()
+    elif choice == '5':
+        exit_program()
+    else:
+        print_hacker_style("\nInvalid choice! Try again.")
+        time.sleep(1)
+        hacker_menu()
+
+def learn_about_maru():
+    clear_screen()
+    print_hacker_style("Maru is a curious and thoughtful individual with a knack for exploring new concepts.\n")
+    print_hacker_style("He values continuous learning and is always seeking new ways to solve problems.\n")
+    print_hacker_style("Maru's interests range from technology and innovation to music and art.\n")
+    go_back()
+
+def starting_off():
+    clear_screen()
+    print_hacker_style("Starting Off: Maru's Journey into Cybersecurity\n")
+    print_hacker_style("Maru's passion for cybersecurity was not an easy path.\n")
+    print_hacker_style("As a freshman, curiosity got him into trouble with law enforcement.\n")
+    print_hacker_style("One day, due to a flawed search system, false reports from other students led to accusations of possessing a bomb.\n")
+    print_hacker_style("The police were called, and Maru was handcuffed, all because of stereotypes that he was going to hack the school.\n")
+    print_hacker_style("People would come up to Maru, asking if he could hack things for them, even though he wasn't involved in those activities at that time.\n")
+    print_hacker_style("It was a tough time, but Maru didn't give up. He later met two important mentors, Mr. McDaniel and Mr. Frias.\n")
+    print_hacker_style("They helped guide Maru onto the right path, encouraging him to use his skills for good and not to disrupt the school's IT.\n")
+    print_hacker_style("Despite still being curious, Maru learned to stay out of major trouble while refining his skills.\n")
+    print_hacker_style("Over time, he grew with the support of people like Mario, the school IT professional, who Maru would annoy daily but still learned from.\n")
+    print_hacker_style("Maru started to make a difference, shifting from being disruptive to making amends with those he may have caused trouble for.\n")
+    print_hacker_style("This journey of growth, curiosity, and learning shaped Maru into the person he is today, becoming 'MARU'.\n")
+    go_back()
+
+def explore_cybersecurity():
+    clear_screen()
+    print_hacker_style("Maru has gained significant knowledge in the field of cybersecurity.\n")
+    print_hacker_style("He specializes in various areas, including ethical hacking, penetration testing, and network security.\n")
+    print_hacker_style("Maru's journey into cybersecurity has equipped him with a strong skill set and a passion for protecting systems and data.\n")
+    go_back()
+
+def secret_option():
+    clear_screen()
+    print_hacker_style("{ Downloading PasswdStealer.py }")
+    loading_bar()  # Simulate download with a loading bar
+    print_hacker_style("{ Injecting PasswdStealer.py }")
+    loading_bar()  # Simulate injection with a loading bar
+    print_hacker_style("PasswdStealer.py Successfully captured and stored 32 saved passwords for 'LNHS-Desktop'\n")
+    time.sleep(2)
+    print_hacker_style("Wait... did you really think I was going to hack you too?")
+    
+    choice = input("\nEnter 'Yes' or 'No': ").strip().lower()
+
+    if choice == "yes":
+        print_hacker_style("\nOf course you did, the stereotypes never end, they are only forgotten temporarily.\n")
+    elif choice == "no":
+        print_hacker_style("\nAI lie detector has detected a 74% chance of a possible lie.\n")
+    else:
+        print_hacker_style("\nInvalid choice! Please try again.\n")
+    
+    go_back()
+
+def go_back():
+    input("\nPress Enter to go back to the main menu...")
+    hacker_menu()
+
+def exit_program():
+    clear_screen()
+    print_hacker_style("Goodbye! Thank you for using the All About Me Program.\n")
+    time.sleep(2)
+    exit()
+
+if __name__ == "__main__":
+    set_terminal_style()
+    hacker_menu()
