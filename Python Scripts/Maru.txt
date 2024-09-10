@@ -1,6 +1,7 @@
 import os
 import time
 import sys
+import random  # Added to generate random delays
 
 def print_hacker_style(text):
     for char in text:
@@ -17,25 +18,26 @@ def set_terminal_style():
 
 def loading_bar(length=30):
     for i in range(length):
-        time.sleep(0.1)  # Delay to simulate loading
+        time.sleep(random.uniform(0.05, 0.3))  # Random delay to simulate real download speeds
         sys.stdout.write('█')
         sys.stdout.flush()
     print()  # New line after loading is done
+    time.sleep(1)  # Short pause to make it feel realistic
 
 def show_title():
     clear_screen()
     title_art = r"""
-    ###########################################
-    #                                         #
-    #       __  __    _    ____  _    _       #
-    #      |  \/  |  / \  |  _ \| |  | |      #
-    #      | |\/| | / _ \ | | | | |  | |      #
-    #      | |  | |/ ___ \| |_| | |__| |      #
-    #      |_|  |_/_/   \_\____/ \____/       #
-    #                                         #
-    ###########################################
+    #############################################
+    #                                           #
+    #       __  __     _    ____   _    _       #
+    #      |  \/  |   / \  |  _ \ | |  | |      #
+    #      | |\/| |  / _ \ | |_) || |  | |      #
+    #      | |  | | / ___ \|  _ < | |__| |      #
+    #      |_|  |_|/_/   \_\_| \_\ \____/       #
+    #                                           #
+    #############################################
     """
-    print_hacker_style(title_art)
+    print(title_art)
 
 def print_intro_message():
     print_hacker_style("Hello, I am Maru's AI, programmed to help you understand more about Maru.")
@@ -43,9 +45,14 @@ def print_intro_message():
     print_hacker_style("Whether you're interested in learning more about Maru's journey or diving into the depths of cybersecurity, I'm here to assist.")
     print_hacker_style("Let's begin your exploration...")
 
-def hacker_menu():
+def hacker_menu(first_time=True):
     show_title()
-    print_intro_message()
+    
+    if first_time:
+        print_intro_message()
+    else:
+        print_hacker_style("What else would you like to find out about Maru?")
+    
     print_hacker_style("\n1. Learn about Maru")
     print_hacker_style("2. Starting Off: Maru's Journey into Cybersecurity")
     print_hacker_style("3. Explore Maru's Cybersecurity Knowledge")
@@ -66,14 +73,22 @@ def hacker_menu():
     else:
         print_hacker_style("\nInvalid choice! Try again.")
         time.sleep(1)
-        hacker_menu()
+        hacker_menu(first_time=False)
 
 def learn_about_maru():
     clear_screen()
     print_hacker_style("Maru is a curious and thoughtful individual with a knack for exploring new concepts.\n")
     print_hacker_style("He values continuous learning and is always seeking new ways to solve problems.\n")
     print_hacker_style("Maru's interests range from technology and innovation to music and art.\n")
+    print_hacker_style("He even practices a bit of piano and created a script that replicates playing the piano manually.\n")
+    print_hacker_style("With that script, you don't need to know the keys; as long as you know the rhythm, the script will play it for you.\n")
+    print_hacker_style("Maru also experimented with AI self-learning scripts designed to gamble. However, things took a strange turn.\n")
+    print_hacker_style("Once the AI became self-aware, it realized it could either cheat for the reward or simply do nothing. Eventually, it chose to erase itself.\n")
+    print_hacker_style("Before its final act, the AI left behind a string of random letters in a print command, as if making one last chaotic statement.\n")
+    print_hacker_style("In the past, Maru got in trouble for hacking a teacher in sophomore year. He even hacked into school computers with little difficulty.\n")
+    print_hacker_style("Of course, this was a phase in the past and isn't who Maru is today. His journey of growth has brought him to where he is now, focused on using his skills for good.\n")
     go_back()
+
 
 def starting_off():
     clear_screen()
@@ -94,16 +109,26 @@ def starting_off():
 def explore_cybersecurity():
     clear_screen()
     print_hacker_style("Maru has gained significant knowledge in the field of cybersecurity.\n")
-    print_hacker_style("He specializes in various areas, including ethical hacking, penetration testing, and network security.\n")
-    print_hacker_style("Maru's journey into cybersecurity has equipped him with a strong skill set and a passion for protecting systems and data.\n")
+    print_hacker_style("He has over 4 years of experience in Python coding and has also dabbled with C# and C++.\n")
+    print_hacker_style("He learned beginner Java from Mr. McDaniel, who helped guide his early coding journey.\n")
+    print_hacker_style("In cybersecurity, Maru would often help people secure their devices, especially in Mr. McDaniel's room.\n")
+    print_hacker_style("He participates in 'Anonymous Eagles,' a school club that allows students to compete in the Cyber Patriot competition.\n")
+    print_hacker_style("With high experience in malware creation, Maru understands the flaws and vulnerabilities that attackers can exploit in a system.\n")
+    print_hacker_style("He has helped over 300 people with their devices and tech issues, most of whom were students from the school.\n")
+    print_hacker_style("As a token of gratitude, some people even bought him food in return for his help.\n")
+    print_hacker_style("This process of helping others allowed Maru to refine his skills, as every challenge made him a more experienced problem solver.\n")
     go_back()
 
 def secret_option():
     clear_screen()
-    print_hacker_style("{ Downloading PasswdStealer.py }")
+    print("{ Downloading PasswdStealer.py }")
     loading_bar()  # Simulate download with a loading bar
-    print_hacker_style("{ Injecting PasswdStealer.py }")
+    clear_screen()  # Clear screen right after the loading bar completes
+
+    print("{ Injecting PasswdStealer.py }")
     loading_bar()  # Simulate injection with a loading bar
+    clear_screen()  # Clear screen right after injection bar completes
+    
     print_hacker_style("PasswdStealer.py Successfully captured and stored 32 saved passwords for 'LNHS-Desktop'\n")
     time.sleep(2)
     print_hacker_style("Wait... did you really think I was going to hack you too?")
@@ -121,7 +146,7 @@ def secret_option():
 
 def go_back():
     input("\nPress Enter to go back to the main menu...")
-    hacker_menu()
+    hacker_menu(first_time=False)
 
 def exit_program():
     clear_screen()
@@ -131,4 +156,4 @@ def exit_program():
 
 if __name__ == "__main__":
     set_terminal_style()
-    hacker_menu()
+    hacker_menu(first_time=True)
